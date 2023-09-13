@@ -16,5 +16,16 @@ double gradient_cost() {
 
 int main()
 {
+	//a cout statement is made to input a value for y_predict
+	cout << "Input the value for y_predict (using atleast one decimal place): ";
+	cin >> y_predict;
+
+	//a cout statement is amde to input a value for y
+	cout << "Input the value for y (using atleast one decimal place): ";
+	cin >> y;
+
+	//the function for gradient cost is called and displayed in the code
+	cout << "Gradient Cost: " << gradient_cost();
+
 	return 0;
 }
