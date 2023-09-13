@@ -30,6 +30,9 @@ double gradient_sigmoid() {
 
 int main()
 {
-	
+	input_z(); //calling the z input function
+	cout << "Sigma(z) = " << sigmoid() << "\n" << endl; //calling the function and dsiplaying the returned value from sigmoid
+	cout << "Gradient Sigma(z) = " << gradient_sigmoid() << "\n" << endl; //calling the function and displaying the returned value from gradient_sigmoid
+
 	return 0;
 }
