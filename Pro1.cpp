@@ -36,7 +36,7 @@ for (double i = 0; i <= 500; i++) {
 	roll_rate = roll_rate + change_roll_rate * step_size;
 
 	//printing out of the time, and the roll rate corresponding to that time
-	cout << "Time: " << t << "        " << "Roll Rate: " << roll_rate << endl;
+	cout << "Time (s): " << t << "        " << "Roll Rate (rad/s): " << roll_rate << endl;
 
 }
 return 0;
