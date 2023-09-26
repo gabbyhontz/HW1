@@ -59,10 +59,10 @@ vector<double> gradient_weights(vector<double> w, vector<double> x, int size) {
 }
 
 //function to solve for the updated weights using w, alpha, vector_dwi,and the vector size
-void update_weights(vector<double> &w, double alpha, vector<double> vect_dwi, int size) {
+void update_weights(vector<double> &w, double alpha, vector<double> vect_dwi) {
 
     //for loop solving for the updated weights at the vector size
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < vect_dwi.size(); i++) {
 		w[i] = w[i] - alpha * vect_dwi[i];
 	}
 
@@ -110,7 +110,7 @@ int main()
     }
 
     //call updated weights function
-    update_weights(vect_ww, alpha, vect_dwi,size);
+    update_weights(vect_ww, alpha, vect_dwi);
 
     cout << "\n" << endl;
 
