@@ -1,21 +1,12 @@
-﻿// Pro7.cpp : Defines the entry point for the application.
+// Pro7.cpp : Defines the entry point for the application.
 //
 
 #include "Pro7.h"
 
 using namespace std;
 
-double sigma, x, y, w, alpha, dwi, wi,z,dot_pro;
-vector <double> vect_wi;
-int size;
-
-double input_z() {
-    cout << "Type in a value for z (with at least one decimal place): ";
-    cin >> z;
-    return z;
-}
-
 double sigmoid(double z) {
+    double sigma;
     sigma = 1 / (1 + exp(-z));
     return sigma;
 }
@@ -31,6 +22,8 @@ double dot_product(vector<double> w, vector<double> x, int size) {
 }
 
 vector<double> gradient_weights(vector<double> w, vector<double> x, int size) {
+
+    double sigma, dot_pro;
 
     double y = 1;
 
@@ -73,7 +66,7 @@ int main()
     vector<double> vect_ww; //initialize vector with variable values as doubles
     for (double i = 0; i < size; i++)
     {
-        cout << "what is the value for element " << i << " in your vector ww? " << endl;
+        cout << "what is the value for element " << i << " in your vector w? " << endl;
         cin >> var_ww; //input for vector a variables
         vect_ww.push_back(var_ww); //used to push elements into a vector from the back
     }
@@ -82,7 +75,7 @@ int main()
     vector<double> vect_xx; //initialize vector with variable values as doubles
     for (double i = 0; i < size; i++)
     {
-        cout << "what is the value for element " << i << " in your vector xx? " << endl;
+        cout << "what is the value for element " << i << " in your vector x? " << endl;
         cin >> var_xx; //input for vector a variables
         vect_xx.push_back(var_xx); //used to push elements into a vector from the back
     }
