@@ -5,9 +5,11 @@
 
 using namespace std;
 
+//function for dot product between two vectors
 double dot_product(vector<double> w, vector<double> x, int size) {
-    double dot_pro = 0;
+    double dot_pro = 0; //initialize dot product
 
+    //for loop performing the dot product for each vector element 
     for (double i = 0; i < size; i++) {
 
         dot_pro = dot_pro + w[i] * x[i];
@@ -39,8 +41,7 @@ int main()
         vect_xx.push_back(var_xx); //used to push elements into a vector from the back
     }
 
+    //output the dot product
     cout << "Dot Product = " << dot_product(vect_ww, vect_xx, size) << "\n" << endl;
 
 	return 0;
-}
-
