@@ -5,54 +5,42 @@
 
 using namespace std;
 
-double dot_product() {
-    double dot_pro=0; //initialize dot_pro
+double dot_product(vector<double> w, vector<double> x, int size) {
+    double dot_pro = 0;
 
-    int size; //initializing size vector
-    cout << "What is the size of your vectors A and B?" << endl;
-    cin >> size; //taking size of vector from user
-
-    cout << endl;
-
-    double var_a; //initialize input of vector components
-    vector<double> vect_a; //initializing vector with variable values as double
-    for (double i = 0; i < size; i++)
-    {
-        cout << "what is the value for element " << i << " in your vector A? " << endl;
-        cin >> var_a; //input for vector a variables
-        vect_a.push_back(var_a); //used to push elements into a vector from the back
-    }
-    
-    cout << endl;
-
-    double var_b; //initialize input of vector components
-    vector<double> vect_b; //initialize vector with variable values as doubles
-    for (double i = 0; i < size; i++)
-    {
-        cout << "what is the value for element " << i << " in your vector B? " << endl;
-        cin >> var_b; //input for vector b variables
-        vect_b.push_back(var_b); //used to push elements into a vector from the back
-    }
-    
-    cout << endl;
-
-    cout << "The answer is: " << endl;
-	//for loop to find the dot product
     for (double i = 0; i < size; i++) {
-	//dot product that runs for the number inputted for the size
-	//the vector elements in slot 0 are multiplied and added to the existing dot product
-	//this loop contines until i is found to be greater than the size of the matrix
-        dot_pro = dot_pro+vect_a[i] * vect_b[i];
+
+        dot_pro = dot_pro + w[i] * x[i];
     }
-    
-	//return the value of dot_product
     return dot_pro;
 }
 
 int main()
 {
-	//output the function dot_produuct
-   cout << dot_product() << endl;
-	
+    int size; //initializing size vector
+    cout << "What is the size of your vectors?" << endl;
+    cin >> size; //taking size of vector from user
+
+    double var_ww; //initialize input of vector components
+    vector<double> vect_ww; //initialize vector with variable values as doubles
+    for (double i = 0; i < size; i++)
+    {
+        cout << "what is the value for element " << i << " in your vector ww? " << endl;
+        cin >> var_ww; //input for vector a variables
+        vect_ww.push_back(var_ww); //used to push elements into a vector from the back
+    }
+
+    double var_xx; //initialize input of vector components
+    vector<double> vect_xx; //initialize vector with variable values as doubles
+    for (double i = 0; i < size; i++)
+    {
+        cout << "what is the value for element " << i << " in your vector xx? " << endl;
+        cin >> var_xx; //input for vector a variables
+        vect_xx.push_back(var_xx); //used to push elements into a vector from the back
+    }
+
+    cout << "Dot Product = " << dot_product(vect_ww, vect_xx, size) << "\n" << endl;
+
 	return 0;
 }
+
