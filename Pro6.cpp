@@ -19,11 +19,12 @@ int main()
 	cout << "Input the value for y_predict: ";
 	cin >> y_predict;
 
-	//a cout statement is amde to input a value for y
+	//a cout statement is made to input a value for y
 	double y;
 	cout << "Input the value for y: ";
 	cin >> y;
 
 	//the function for gradient cost is called and displayed in the code
+	//y predict and y are inputted into the function call
 	cout << "Gradient Cost: " << gradient_cost(y_predict, y);
 }
