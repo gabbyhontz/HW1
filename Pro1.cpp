@@ -19,7 +19,7 @@ int main()
 	//every run through the value of i is increased by 1 to store a new variable
 	for (double i = 0; i <= 500; i++) {
 		//solving for the time t, we divide i by 100 because our time step 0.01 is in the hundreds place
-		const double t = i / 100.0; 
+		const double t = i / 100.0;
 
 		//if statement where for the range [0,2] aileron_angle=1
 		if (t >= 0 && t <= 2) {
