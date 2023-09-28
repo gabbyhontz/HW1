@@ -64,11 +64,14 @@ void update_weights(vector<double>& w, double alpha, vector<double> vect_dwi) {
 
 int main()
 {
+    //initialize alpha and w values given in problem
     double alpha = 0.001;
     vector<double> w = { 0.0001,0.0001,0.0001 };
 
 
+    //for loop to count iterations of 150
     for (int i = 0; i < 150; i++) {
+        //initialize all x sets for each aircraft
         vector<double> M_346_Master = { 124,31.89,20.945 };
         vector<double> AT_402B = { 74,51.08,9.170 };
         vector<double> MB_326 = { 103,34.67,8.300 };
@@ -78,13 +81,17 @@ int main()
         vector<double> Aero_L_159_Alca = { 130,31.29,17.637 };
         vector<double> AT_504 = { 73,52.00,9.600 };
 
+        //initialize y set
         vector<double> y = { 1,0,1,0,1,0,1,0 };
 
+        //initialize vector of vectors for air crafts sets
         vector<vector<double>> vector_of_vector = { M_346_Master, AT_402B, MB_326, AT_502B, MB_339, AT_602, Aero_L_159_Alca, AT_504 };;
 
+        //for loop to run through vector of vectors
         for (int i = 0; i < vector_of_vector.size(); i++)
         {
             //vector_of_vector[i]; // this is a vector
+            //for loop to run through variables within  the vector of vectors
             for (int j = 0; j < vector_of_vector[i].size(); j++)
             {
                 vector_of_vector[i][j]; // this is double
@@ -101,7 +108,7 @@ int main()
             //call updated weights function
             update_weights(w, alpha, vect_dwi);
 
-            //display the updated weights vector ww
+            //display the updated weights vector w
             cout << "Updated Weights Aircraft Model " << i+1 << " = " << endl;
             for (int i = 0; i < w.size(); i++) {
                 cout << w[i] << endl;
