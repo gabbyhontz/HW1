@@ -1,4 +1,4 @@
-﻿// Prob8.cpp : Defines the entry point for the application.
+// Prob8.cpp : Defines the entry point for the application.
 //
 
 #include "Prob8.h"
@@ -67,9 +67,6 @@ int main()
     double alpha = 0.001;
     vector<double> w = { 0.0001,0.0001,0.0001 };
 
-    int y;
-    cout << "what engine type is your engine (1=Jet; 0=Turboprop)?" << endl;
-    cin >> y;
 
     for (int i = 0; i < 150; i++) {
         vector<double> M_346_Master = { 124,31.89,20.945 };
@@ -81,22 +78,34 @@ int main()
         vector<double> Aero_L_159_Alca = { 130,31.29,17.637 };
         vector<double> AT_504 = { 73,52.00,9.600 };
 
+        vector<double> y = { 1,0,1,0,1,0,1,0 };
 
-        //display dot product and simga values
-        dot_product(w, M_346_Master, 3);
-        sigmoid(dot_product(w, M_346_Master, 3));
+        vector<vector<double>> vector_of_vector = { M_346_Master, AT_402B, MB_326, AT_502B, MB_339, AT_602, Aero_L_159_Alca, AT_504 };;
+
+        for (int i = 0; i < vector_of_vector.size(); i++)
+        {
+            //vector_of_vector[i]; // this is a vector
+            for (int j = 0; j < vector_of_vector[i].size(); j++)
+            {
+                vector_of_vector[i][j]; // this is double
+            }
+
+            ////display dot product and simga values
+            //dot_product(w, vector_of_vector[i], 3);
+            //sigmoid(dot_product(w, vector_of_vector[i], 3));
 
 
-        //displays the elements of the dwi vector found in the gradient weights function
-        vector<double> vect_dwi = gradient_weights(w, M_346_Master, 3, y);
+            //displays the elements of the dwi vector found in the gradient weights function
+            vector<double> vect_dwi = gradient_weights(w, vector_of_vector[i], 3, y[i]);
 
-        //call updated weights function
-        update_weights(w, alpha, vect_dwi);
+            //call updated weights function
+            update_weights(w, alpha, vect_dwi);
 
-        //display the updated weights vector ww
-        cout << "Updated Weights = " << endl;
-        for (int i = 0; i < w.size(); i++) {
-            cout << w[i] << endl;
+            //display the updated weights vector ww
+            cout << "Updated Weights Aircraft Model " << i+1 << " = " << endl;
+            for (int i = 0; i < w.size(); i++) {
+                cout << w[i] << endl;
+            }
         }
 
         cout << endl;
