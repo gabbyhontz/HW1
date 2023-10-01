@@ -1,4 +1,4 @@
-// Pro1.cpp : Defines the entry point for the application.
+// Pro1.cpp : Defines the entry point for the application
 //
 
 #include "Pro1.h"
