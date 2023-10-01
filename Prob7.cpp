@@ -1,4 +1,4 @@
-﻿// Prob7.cpp : Defines the entry point for the application.
+// Prob7.cpp : Defines the entry point for the application.
 //
 
 #include "Prob7.h"
