@@ -1,4 +1,4 @@
-﻿// Prob6.cpp : Defines the entry point for the application
+// Prob6.cpp : Defines the entry point for the application.
 //
 
 #include "Prob6.h"
