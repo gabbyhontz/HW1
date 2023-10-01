@@ -1,4 +1,4 @@
-﻿// Prob2.cpp : Defines the entry point for the application.
+// Prob2.cpp : Defines the entry point for the application.
 //
 
 #include "Prob2.h"
