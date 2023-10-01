@@ -1,4 +1,4 @@
-﻿// Pro4.h : Include file for standard system include files,
+﻿// Pro4.h : Include file for standard system include files
 // or project specific include files.
 
 #pragma once
