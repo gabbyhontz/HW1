@@ -64,9 +64,24 @@ void update_weights(vector<double>& w, double alpha, vector<double> vect_dwi) {
 
 int main()
 {
-    //initialize alpha and w values given in problem
-    double alpha = 0.001;
-    vector<double> w = { 0.0001,0.0001,0.0001 };
+    //vector<double> w = { 0.0001,0.0001,0.0001 };
+
+    int size; //initializing size vector
+    cout << "What is the size of your vectors?" << endl;
+    cin >> size; //taking size of vector from user
+
+    double alpha; //initializing size vector
+    cout << "What is the svalue of alpha?" << endl;
+    cin >> alpha; //taking size of vector from user
+
+    double var_w; //initialize input of vector components
+    vector<double> w; //initialize vector with variable values as doubles
+    for (double i = 0; i < size; i++)
+    {
+        cout << "what is the value for element " << i << " in your vector w? " << endl;
+        cin >> var_w; //input for vector a variables
+        w.push_back(var_w); //used to push elements into a vector from the back
+    }
 
 
     //for loop to count iterations of 150
@@ -97,13 +112,8 @@ int main()
                 vector_of_vector[i][j]; // this is double
             }
 
-            ////display dot product and simga values
-            //dot_product(w, vector_of_vector[i], 3);
-            //sigmoid(dot_product(w, vector_of_vector[i], 3));
-
-
             //displays the elements of the dwi vector found in the gradient weights function
-            vector<double> vect_dwi = gradient_weights(w, vector_of_vector[i], 3, y[i]);
+            vector<double> vect_dwi = gradient_weights(w, vector_of_vector[i], size, y[i]);
 
             //call updated weights function
             update_weights(w, alpha, vect_dwi);
