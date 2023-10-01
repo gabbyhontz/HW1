@@ -66,9 +66,7 @@ int main()
 {
     //vector<double> w = { 0.0001,0.0001,0.0001 };
 
-    int size; //initializing size vector
-    cout << "What is the size of your vectors?" << endl;
-    cin >> size; //taking size of vector from user
+    int size=3;
 
     double alpha; //initializing size vector
     cout << "What is the svalue of alpha?" << endl;
