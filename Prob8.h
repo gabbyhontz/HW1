@@ -1,4 +1,4 @@
-// Prob8.h : Include file for standard system include files,
+// Prob8.h : Include file for standard system include files
 // or project specific include files
 
 #pragma once
