@@ -69,7 +69,7 @@ int main()
     int size=3;
 
     double alpha; //initializing size vector
-    cout << "What is the svalue of alpha?" << endl;
+    cout << "What is the value of alpha?" << endl;
     cin >> alpha; //taking size of vector from user
 
     double var_w; //initialize input of vector components
