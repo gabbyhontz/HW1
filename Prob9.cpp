@@ -1,9 +1,10 @@
-﻿// Prob9.cpp : Defines the entry point for the application.
+// Prob9.cpp : Defines the entry point for the application.
 //
 
 #include "Prob9.h"
 
 using namespace std;
+
 
 //function to solve for sigmoid from problem 5
 double sigmoid(double z) {
@@ -74,21 +75,35 @@ double predict(vector<double> w, vector<double> x) {
         cout << "jet" << endl; //if y_predict is greater than 0.5 then its a jet 
     else
         cout << "turboprop" << endl; //if y_predict is less than or equal to 0.5 then its a turboprop
-   
+
     //the value of y_predict is returned
     return y_predict;
 }
 
 int main()
 {
-    //initialize alpha and w values given in problem
-    double alpha = 0.001;
-    vector<double> w = { 0.0001,0.0001,0.0001 };
+    //vector<double> w = { 0.0001,0.0001,0.0001 };
+
+    int size; //initializing size vector
+    cout << "What is the size of your vectors?" << endl;
+    cin >> size; //taking size of vector from user
+
+    double alpha; //initializing size vector
+    cout << "What is the value of alpha?" << endl;
+    cin >> alpha; //taking size of vector from user
+
+    double var_w; //initialize input of vector components
+    vector<double> w; //initialize vector with variable values as doubles
+    for (double i = 0; i < size; i++)
+    {
+        cout << "what is the value for element " << i << " in your vector w? " << endl;
+        cin >> var_w; //input for vector a variables
+        w.push_back(var_w); //used to push elements into a vector from the back
+    }
 
 
     //for loop to count iterations of 150
     for (int i = 0; i < 150; i++) {
-
         //initialize all x sets for each aircraft
         vector<double> M_346_Master = { 124,31.89,20.945 };
         vector<double> AT_402B = { 74,51.08,9.170 };
@@ -102,6 +117,7 @@ int main()
         //initialize y set
         vector<double> y = { 1,0,1,0,1,0,1,0 };
 
+        //initialize vector of vectors for air crafts sets
         vector<vector<double>> vector_of_vector = { M_346_Master, AT_402B, MB_326, AT_502B, MB_339, AT_602, Aero_L_159_Alca, AT_504 };
 
         //initialize all x sets for each aircraft
@@ -111,47 +127,50 @@ int main()
         vector<double> Caravan_208 = { 79,52.08,8.000 };
 
         //initialize vector of vectors for air crafts sets
-        vector<vector<double>> vector_of_vector2 = { SF50_Vision, Aero_L29_Delfin, AT_802U, Caravan_208};
+        vector<vector<double>> vector_of_vector2 = { SF50_Vision, Aero_L29_Delfin, AT_802U, Caravan_208 };
 
-            //for loop to run through vector of vectors variable
-            for (int i = 0; i < vector_of_vector.size(); i++)
+        //for loop to run through vector of vectors
+        for (int i = 0; i < vector_of_vector.size(); i++)
+        {
+            //vector_of_vector[i]; // this is a vector
+            //for loop to run through variables within  the vector of vectors
+            for (int j = 0; j < vector_of_vector[i].size(); j++)
             {
-                //vector_of_vector[i]; // this is a vector
-                //for loop to run through elements within the vector of vectors
-                for (int j = 0; j < vector_of_vector[i].size(); j++)
-                {
-                    vector_of_vector[i][j]; // this is double
-                }
-
-                //displays the elements of the dwi vector found in the gradient weights function
-                vector<double> vect_dwi = gradient_weights(w, vector_of_vector[i], 3, y[i]);
-
-                //call updated weights function
-                update_weights(w, alpha, vect_dwi);
-
-                //display the updated weights vector w
-                for (int i = 0; i < w.size(); i++) {
-                    w[i];
-                }
-                
-                //for loop to run through vect of vectors 2 variable
-                for (int a = 0; a < vector_of_vector2.size(); a++) {
-                    //for loop to run through the elements within the vector of vector2
-                    for (int b = 0; b < vector_of_vector2[a].size(); b++) {
-                        vector_of_vector2[a][b]; // this is a double
-                        
-                    }
-
-                    //output the results from the y_predict function as well as if the plane is a jet or turboprop
-                    cout << endl;
-                    cout << "SF50 Vision: " << predict(w, vector_of_vector2[0]) << endl;
-                    cout << "Aero L-29 Delfin: " << predict(w, vector_of_vector2[1]) << endl;
-                    cout << "AT-802U: " << predict(w, vector_of_vector2[2]) << endl;
-                    cout << "208 Caravan: " << predict(w, vector_of_vector2[3]) << endl;
-                } 
+                vector_of_vector[i][j]; // this is double
             }
 
-            cout << endl;
+            //displays the elements of the dwi vector found in the gradient weights function
+            vector<double> vect_dwi = gradient_weights(w, vector_of_vector[i], size, y[i]);
+
+            //call updated weights function
+            update_weights(w, alpha, vect_dwi);
+
+            //display the updated weights vector w
+            cout << "Updated Weights Aircraft Model " << i + 1 << " = " << endl;
+            for (int i = 0; i < w.size(); i++) {
+                cout << w[i] << endl;
+            }
+
+            //for loop to run through vect of vectors 2 variable
+            for (int a = 0; a < vector_of_vector2.size(); a++) {
+                //for loop to run through the elements within the vector of vector2
+                for (int b = 0; b < vector_of_vector2[a].size(); b++) {
+                    vector_of_vector2[a][b]; // this is a double
+
+                }
+
+                //output the results from the y_predict function as well as if the plane is a jet or turboprop
+                cout << endl;
+                cout << "SF50 Vision: " << predict(w, vector_of_vector2[0]) << endl;
+                cout << "Aero L-29 Delfin: " << predict(w, vector_of_vector2[1]) << endl;
+                cout << "AT-802U: " << predict(w, vector_of_vector2[2]) << endl;
+                cout << "208 Caravan: " << predict(w, vector_of_vector2[3]) << endl;
+            }
+        }
+
+        cout << endl;
+
+
     }
     return 0;
 }
