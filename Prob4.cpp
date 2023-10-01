@@ -1,4 +1,4 @@
-﻿// Prob4.cpp : Defines the entry point for the application.
+// Prob4.cpp : Defines the entry point for the application.
 //
 
 #include "Prob4.h"
