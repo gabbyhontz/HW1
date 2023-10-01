@@ -1,4 +1,4 @@
-// Pro7.cpp : Defines the entry point for the application.
+// Pro7.cpp : Defines the entry point for the application
 //
 
 #include "Pro7.h"
